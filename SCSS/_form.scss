@@ -1,0 +1,21 @@
+.add--minibox {
+  position: relative;
+  margin-top: 25px;
+}
+
+.form {
+  &__container {
+    width: 785px;
+    margin: 0 auto;
+
+    h1 {
+      text-align: center;
+      margin: 15px 0;
+      font-size: 50px;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+  }
+}

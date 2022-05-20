@@ -1,0 +1,31 @@
+@keyframes contentAnimation {
+  to {
+    padding-top: 50px;
+    opacity: 1;
+  }
+}
+
+@keyframes openModal {
+  from {
+    bottom: -890px;
+  }
+  to {
+    bottom: 0;
+  }
+}
+
+@keyframes closeContent {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: -890px;
+  }
+}
+
+@keyframes table_computer_intro {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

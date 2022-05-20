@@ -1,0 +1,101 @@
+.floors {
+  margin: 0 auto;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  bottom: -1000px;
+  // top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  // transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: white;
+  // border-radius: 25px 25px 0 0;
+  box-shadow: rgba(149, 157, 165, 0.6) 0px 8px 24px;
+  // animation: openModal 0.2s ease forwards;
+  display: block;
+  z-index: 200;
+  transition: all 0.25s ease-out;
+
+  .title--large {
+    font-size: 50px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 11px;
+  }
+
+  &--box {
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+
+  &__floor {
+    background-color: #fbfbfb;
+    width: fit-content;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    // margin-bottom: 20px;
+    transition: all 0.2s linear;
+    // display: flex;
+    overflow: hidden;
+    // justify-content: space-evenly;
+    padding: 17px 34px 8px;
+    // margin-top: 15px;
+    margin: 0 auto 30px;
+
+    &--box {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    & .miniroom {
+      background-color: #42a5f5;
+      width: 170px;
+      height: 115px;
+      z-index: 50;
+      border-radius: 15px;
+      transition: all 0.2s linear;
+      margin: 0 17px;
+      position: relative;
+      cursor: pointer;
+
+      &--title {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &:hover {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        transform: scale(1.02);
+      }
+    }
+
+    & .miniroom:first-child {
+      margin-left: 0;
+    }
+
+    & .miniroom:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      transform: scale(1.015);
+    }
+  }
+
+  &__floor:first-child {
+    margin-top: 0px;
+  }
+
+  span {
+    font-size: 20px;
+    // margin-top: 10px;
+    box-shadow: none !important;
+    margin-bottom: -5px;
+  }
+}

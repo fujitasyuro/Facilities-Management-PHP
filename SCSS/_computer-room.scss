@@ -1,0 +1,118 @@
+.computer {
+  flex: 1;
+
+  &--box {
+    background-color: white;
+    border-radius: 15px;
+    width: 700px;
+    height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.13) 0px 4px 12px;
+    position: relative;
+    margin: 70px auto 0;
+    padding: 30px;
+    transition: all 0.2s linear;
+
+    & .title--large {
+      font-size: 50px;
+      margin: 10px 0 30px;
+    }
+
+    &:hover {
+      transform: scale(1.015);
+      box-shadow: rgba(0, 0, 0, 0.13) 0px 4px 25px;
+    }
+
+    & .modal__btn--add:hover .computer__add__option {
+      transform: scale(1);
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+  }
+}
+
+#monitor,
+#pc-computer,
+#table,
+#keyboard,
+#mouse-pad,
+#mouse,
+#Book,
+#note,
+#tree {
+  transform: translateY(-150px);
+  opacity: 0;
+}
+
+#table {
+  animation: table_computer_intro 0.8s cubic-bezier(0.04, 0.55, 0.58, 1)
+    forwards;
+}
+
+#monitor {
+  animation: table_computer_intro 0.8s cubic-bezier(0.04, 0.55, 0.58, 1) 0.3s
+    forwards;
+}
+
+#pc-computer {
+  animation: table_computer_intro 0.8s cubic-bezier(0.04, 0.55, 0.58, 1) 0.2s
+    forwards;
+}
+
+#keyboard {
+  animation: table_computer_intro 0.8s cubic-bezier(0.04, 0.55, 0.58, 1) 0.2s
+    forwards;
+}
+
+#mouse-pad {
+  animation: table_computer_intro 0.8s cubic-bezier(0.04, 0.55, 0.58, 1) 0.2s
+    forwards;
+}
+
+#mouse {
+  animation: table_computer_intro 0.8s cubic-bezier(0.04, 0.55, 0.58, 1) 0.3s
+    forwards;
+}
+
+#Book {
+  animation: table_computer_intro 0.8s cubic-bezier(0.04, 0.55, 0.58, 1) 0.3s
+    forwards;
+}
+
+#note {
+  animation: table_computer_intro 0.8s cubic-bezier(0.04, 0.55, 0.58, 1) 0.4s
+    forwards;
+}
+
+#tree {
+  animation: table_computer_intro 0.8s cubic-bezier(0.04, 0.55, 0.58, 1) 0.4s
+    forwards;
+}
+
+.computer__add__option {
+  position: absolute;
+  left: -70px;
+  bottom: -64px;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  transform: scale(0);
+  text-align: center;
+  line-height: 25px;
+  width: 155px;
+  font-size: 13px;
+
+  & ul {
+    list-style: none;
+    padding: 0;
+
+    & li a {
+      text-decoration: none;
+      color: rgb(0, 119, 255);
+      transition: all 0.2s linear;
+
+
+      &:hover {
+        font-size: 14px;
+      }
+    }
+  }
+}

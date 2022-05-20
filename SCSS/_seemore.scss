@@ -1,0 +1,42 @@
+.seemore {
+   height: 100%;
+   width: 100%;
+   background-color: white;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   bottom: 1000px;
+   z-index: 260;
+   transition: all 0.25s ease-out;
+
+   &__content {
+      border-spacing: 0 10px;
+      margin: 85px auto 15px;
+
+      & thead tr th:first-child {
+         width: 100px;
+      }
+
+      & thead tr th:nth-child(2) {
+         width: 215px;
+      }
+      & thead tr th:nth-child(3) {
+         width: 600px;
+      }
+      & thead tr th:nth-child(4) {
+         width: 220px;
+      }
+      & thead tr th:nth-child(5) {
+         width: 250px;
+      }
+      & thead tr th:nth-child(6) {
+         width: 200px;
+      }
+
+      & tbody tr td {
+         text-align: center;
+      }
+
+      & tbody tr:nth-child(even) {background-color: #f2f2f2;}
+   }
+}
