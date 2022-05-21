@@ -44,7 +44,7 @@ if ($ID_loaiphong == 1) {
             <div class="computer__add__option">
               <ul>
                 <li>
-                  <a href="./APP/ADD/addNewComputer.html" class="add--option">Thêm máy mới</a>
+                  <a href="./APP/ADD/addNewComputer.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy mới</a>
                 </li>
                 <li>
                   <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
