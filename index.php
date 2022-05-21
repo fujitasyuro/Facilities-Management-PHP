@@ -78,90 +78,13 @@ include("./db_conn.php")
 
       <!-- SEEMORE -->
 
-      <div class="seemore" id="ha1-2-302-computer">
+      <div class="seemore" id="seemore">
         <button class="modal__btn--close seemore--close">
           <i class="fa-solid fa-xmark"></i>
         </button>
-        <table class="seemore__content">
-          <thead>
-            <th>STT</th>
-            <th>Số máy</th>
-            <th>Cấu hình</th>
-            <th>Ngày mua</th>
-            <th>Tình trạng</th>
-            <th>Thao tác</th>
-          </thead>
+        <div id="seemore--box">
 
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Máy số 1</td>
-              <td>
-                <p>
-                  <span> CPU: </span>
-                  <span> Intel Core i5 8400 </span>
-                </p>
-                <p>
-                  <span> RAM: </span>
-                  <span> 8Gb GDDR4 </span>
-                </p>
-                <p>
-                  <span> Ổ cứng: </span>
-                  <span> 256Gb SSD </span>
-                </p>
-              </td>
-              <td>11/04/2019</td>
-              <td>Hoạt động bình thường</td>
-              <td>
-                <button class="modal__btn--delete">
-                  <i class="fa-regular fa-trash-can"></i>
-                </button>
-                <button class="modal__btn--edit">
-                  <i class="fa-regular fa-pen-to-square"></i>
-                </button>
-                <button class="modal__btn--report">
-                  <a href="./APP/REPORT/reportComputer.html" class="a__btn a__btn--report">
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                  </a>
-                </button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>2</td>
-              <td>Máy số 2</td>
-              <td>
-                <p>
-                  <span> CPU: </span>
-                  <span> Intel Core i5 8400 </span>
-                </p>
-                <p>
-                  <span> RAM: </span>
-                  <span> 8Gb GDDR4 </span>
-                </p>
-                <p>
-                  <span> Ổ cứng: </span>
-                  <span> 256Gb SSD </span>
-                </p>
-              </td>
-              <td>11/04/2019</td>
-              <td>Hoạt động bình thường</td>
-              <td>
-                <button class="modal__btn--delete">
-                  <i class="fa-regular fa-trash-can"></i>
-                </button>
-                <button class="modal__btn--edit">
-                  <i class="fa-regular fa-pen-to-square"></i>
-                </button>
-                <button class="modal__btn--report">
-                  <a href="./APP/REPORT/reportComputer.html" class="a__btn a__btn--report">
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                  </a>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        </div>
       </div>
     </div>
 
@@ -176,7 +99,7 @@ include("./db_conn.php")
   <footer></footer>
 
   <script src="./JS/floorOpen.js"></script>
-  <script src="./JS/seeMore.js"></script>
+  <!-- <script src="./JS/seeMore.js"></script> -->
   <script src="./JS/tabsMenu.js"></script>
   <script src="./JS/jquery-3.2.1.min.js"></script>
 </body>

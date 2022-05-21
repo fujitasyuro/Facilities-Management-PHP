@@ -27,12 +27,15 @@ if ($ID_loaiphong == 1) {
   $sobanghedungduoc = $sobanghe - $sobanghehu;
   ?>
 
+  <h1 class="roomname">PHÒNG <?php echo $roomContent['Ten_phong']; ?></h1>
+
+
   <div class="room__content" id="rooms__room__content">
     <div class="room__content--main">
       <!-- MÁY TÍNH -->
       <div class="computer">
         <div class="computer--box">
-          <bottom class="modal__btn--seemore" data-modal="ha1-2-302-computer">
+          <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="maytinh">
             <i class="fa-regular fa-eye"></i>
           </bottom>
           <!-- THÊM MÁY TÍNH -->
@@ -134,7 +137,7 @@ if ($ID_loaiphong == 1) {
   <div class="room__content--complement">
     <!-- QUẠT -->
     <div class="fans room__content--complement--box status--damage">
-      <bottom class="modal__btn--seemore">
+      <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
         <i class="fa-regular fa-eye"></i>
       </bottom>
       <h1 class="title--medium">QUẠT</h1>
@@ -159,7 +162,7 @@ if ($ID_loaiphong == 1) {
     </div>
     <!-- ĐÈN -->
     <div class="lamps room__content--complement--box status--notgood">
-      <bottom class="modal__btn--seemore">
+      <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
         <i class="fa-regular fa-eye"></i>
       </bottom>
       <h1 class="title--medium">ĐÈN</h1>
@@ -184,7 +187,7 @@ if ($ID_loaiphong == 1) {
     </div>
     <!-- MÁY LẠNH -->
     <div class="air-conditioner room__content--complement--box status--good">
-      <bottom class="modal__btn--seemore">
+      <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="maylanh">
         <i class="fa-regular fa-eye"></i>
       </bottom>
       <h1 class="title--medium">MÁY LẠNH</h1>
@@ -230,12 +233,14 @@ if ($ID_loaiphong == 1) {
   $sobanghedungduoc = $sobanghe - $sobanghehu;
   ?>
 
+  <h1 class="roomname">PHÒNG <?php echo $roomContent['Ten_phong']; ?></h1>
+
   <div class="room__content" id="rooms__room__content">
     <div class="room__content--main">
       <!-- MÁY TÍNH -->
       <div class="computer">
         <div class="computer--box">
-          <bottom class="modal__btn--seemore" data-modal="ha1-2-302-computer">
+          <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="tivi">
             <i class="fa-regular fa-eye"></i>
           </bottom>
           <!-- THÊM MÁY TÍNH -->
@@ -337,7 +342,7 @@ if ($ID_loaiphong == 1) {
   <div class="room__content--complement">
     <!-- QUẠT -->
     <div class="fans room__content--complement--box status--damage">
-      <bottom class="modal__btn--seemore">
+      <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
         <i class="fa-regular fa-eye"></i>
       </bottom>
       <h1 class="title--medium">QUẠT</h1>
@@ -362,7 +367,7 @@ if ($ID_loaiphong == 1) {
     </div>
     <!-- ĐÈN -->
     <div class="lamps room__content--complement--box status--notgood">
-      <bottom class="modal__btn--seemore">
+      <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
         <i class="fa-regular fa-eye"></i>
       </bottom>
       <h1 class="title--medium">ĐÈN</h1>
@@ -387,7 +392,7 @@ if ($ID_loaiphong == 1) {
     </div>
     <!-- Loa -->
     <div class="air-conditioner room__content--complement--box status--good">
-      <bottom class="modal__btn--seemore">
+      <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="loa">
         <i class="fa-regular fa-eye"></i>
       </bottom>
       <h1 class="title--medium">LOA</h1>
@@ -432,12 +437,15 @@ if ($ID_loaiphong == 1) {
   $sobanghedungduoc = $sobanghe - $sobanghehu;
   ?>
 
+  <h1 class="roomname">PHÒNG <?php echo $roomContent['Ten_phong']; ?></h1>
+
+
   <div class="room__content" id="rooms__room__content">
     <div class="room__content--main">
       <!-- MÁY TÍNH -->
       <div class="computer">
         <div class="computer--box">
-          <bottom class="modal__btn--seemore" data-modal="ha1-2-302-computer">
+          <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="maychieu">
             <i class="fa-regular fa-eye"></i>
           </bottom>
           <!-- THÊM MÁY CHIẾU -->
@@ -539,7 +547,7 @@ if ($ID_loaiphong == 1) {
   <div class="room__content--complement">
     <!-- QUẠT -->
     <div class="fans room__content--complement--box status--damage">
-      <bottom class="modal__btn--seemore">
+      <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
         <i class="fa-regular fa-eye"></i>
       </bottom>
       <h1 class="title--medium">QUẠT</h1>
@@ -564,7 +572,7 @@ if ($ID_loaiphong == 1) {
     </div>
     <!-- ĐÈN -->
     <div class="lamps room__content--complement--box status--notgood">
-      <bottom class="modal__btn--seemore">
+      <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
         <i class="fa-regular fa-eye"></i>
       </bottom>
       <h1 class="title--medium">ĐÈN</h1>
@@ -587,9 +595,9 @@ if ($ID_loaiphong == 1) {
         </div>
       </bottom>
     </div>
-    <!-- MÁY LẠNH -->
+    <!-- LOA -->
     <div class="air-conditioner room__content--complement--box status--good">
-      <bottom class="modal__btn--seemore">
+      <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="loa">
         <i class="fa-regular fa-eye"></i>
       </bottom>
       <h1 class="title--medium">LOA</h1>
@@ -632,12 +640,15 @@ if ($ID_loaiphong == 1) {
   $sobanghedungduoc = $sobanghe - $sobanghehu;
   ?>
 
+  <h1 class="roomname">PHÒNG <?php echo $roomContent['Ten_phong']; ?></h1>
+
+
   <div class="room__content" id="rooms__room__content">
     <div class="room__content--main">
       <!-- MÁY TÍNH -->
       <div class="computer">
         <div class="computer--box">
-          <bottom class="modal__btn--seemore" data-modal="ha1-2-302-computer">
+          <bottom class="modal__btn--seemore" data-modal="seemore">
             <i class="fa-regular fa-eye"></i>
           </bottom>
           <!-- THÊM MÁY TÍNH -->
@@ -814,3 +825,6 @@ if ($ID_loaiphong == 1) {
     </div>
   </div>
 <?php } ?>
+
+
+<script src="./JS/seeMore.js"></script>

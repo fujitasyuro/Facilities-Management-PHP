@@ -46,10 +46,9 @@ CREATE TABLE den  (
 );
 
 CREATE TABLE tinhtrangden (
+  ID_tinhtrang int(4) PRIMARY KEY AUTO_INCREMENT,
   ID_dem int(3) not null,
-  ID_phong int(3) not null,
   FOREIGN KEY (ID_dem) REFERENCES den(ID_dem),
-  FOREIGN KEY (ID_phong) REFERENCES phong(ID_phong),
   ngay date not null,
   tinhtrang int(1) not null
 );
@@ -63,10 +62,9 @@ CREATE TABLE tivi (
 );
 
 CREATE TABLE tinhtrangtivi (
+  ID_tinhtrang int(4) PRIMARY KEY AUTO_INCREMENT,
   ID_tivi int(3) not null,
-  ID_phong int(3) not null,
   FOREIGN KEY (ID_tivi) REFERENCES tivi(ID_tivi),
-  FOREIGN KEY (ID_phong) REFERENCES phong(ID_phong),
   ngay date not null,
   tinhtrang int(1) not null
 );
@@ -80,10 +78,9 @@ CREATE TABLE loa (
 );
 
 CREATE TABLE tinhtrangloa (
+  ID_tinhtrang int(4) PRIMARY KEY AUTO_INCREMENT,
   ID_loa int(3) not null,
-  ID_phong int(3) not null,
   FOREIGN KEY (ID_loa) REFERENCES loa(ID_loa),
-  FOREIGN KEY (ID_phong) REFERENCES phong(ID_phong),
   ngay date not null,
   tinhtrang int(1) not null
 );
@@ -97,10 +94,9 @@ CREATE TABLE mic (
 );
 
 CREATE TABLE tinhtrangmic (
+  ID_tinhtrang int(4) PRIMARY KEY AUTO_INCREMENT,
   ID_mic int(3) not null,
-  ID_phong int(3) not null,
   FOREIGN KEY (ID_mic) REFERENCES mic(ID_mic),
-  FOREIGN KEY (ID_phong) REFERENCES phong(ID_phong),
   ngay date not null,
   tinhtrang int(1) not null
 );
@@ -114,10 +110,9 @@ CREATE TABLE maychieu (
 );
 
 CREATE TABLE tinhtrangmaychieu (
+  ID_tinhtrang int(4) PRIMARY KEY AUTO_INCREMENT,
   ID_maychieu int(3) not null,
-  ID_phong int(3) not null,
   FOREIGN KEY (ID_maychieu) REFERENCES maychieu(ID_maychieu),
-  FOREIGN KEY (ID_phong) REFERENCES phong(ID_phong),
   ngay date not null,
   tinhtrang int(1) not null
 );
@@ -148,10 +143,9 @@ CREATE TABLE maylanh (
 );
 
 CREATE TABLE tinhtrangmaylanh (
+  ID_tinhtrang int(4) PRIMARY KEY AUTO_INCREMENT,
   ID_maylanh int(3) not null,
-  ID_phong int(3) not null,
   FOREIGN KEY (ID_maylanh) REFERENCES maylanh(ID_maylanh),
-  FOREIGN KEY (ID_phong) REFERENCES phong(ID_phong),
   ngay date not null,
   tinhtrang int(1) not null
 );
@@ -172,10 +166,9 @@ CREATE TABLE quat (
 );
 
 CREATE TABLE tinhtrangquat (
+  ID_tinhtrang int(4) PRIMARY KEY AUTO_INCREMENT,
   ID_quat int(3) not null,
-  ID_phong int(3) not null,
   FOREIGN KEY (ID_quat) REFERENCES quat(ID_quat),
-  FOREIGN KEY (ID_phong) REFERENCES phong(ID_phong),
   ngay date not null,
   tinhtrang int(1) not null
 );
@@ -198,10 +191,9 @@ CREATE TABLE maytinh (
 );
 
 CREATE TABLE tinhtrangmaytinh (
+  ID_tinhtrang int(4) PRIMARY KEY AUTO_INCREMENT,
   ID_maytinh int(3) not null,
-  ID_phong int(3) not null,
   FOREIGN KEY (ID_maytinh) REFERENCES maytinh(ID_maytinh),
-  FOREIGN KEY (ID_phong) REFERENCES phong(ID_phong),
   ngay date,
   tinhtrang int(1)
 );
@@ -235,3 +227,5 @@ INSERT INTO `phong` (`ID_phong`, `ID_tang`, `ID_loaiphong`, `Ten_phong`, `soluon
 INSERT INTO `banghe` (`ID_banghe`, `Ten_banghe`, `Ngay_mua_banghe`, `soluong`, `ID_phong`) VALUES (NULL, 'Gỗ', '2022-05-20', '25', '10'), (NULL, 'Gỗ', '2022-05-20', '25', '38'), (NULL, 'Gỗ', '2022-05-20', '25', '11'), (NULL, 'Gỗ', '2022-05-20', '25', '39'), (NULL, 'Gỗ', '2022-05-20', '25', '40'), (NULL, 'Gỗ', '2022-05-20', '25', '12'), (NULL, 'Gỗ', '2022-05-20', '25', '41'), (NULL, 'Gỗ', '2022-05-20', '25', '42'), (NULL, 'Gỗ', '2022-05-20', '25', '6'), (NULL, 'Gỗ', '2022-05-20', '25', '43'), (NULL, 'Gỗ', '2022-05-20', '25', '7'), (NULL, 'Gỗ', '2022-05-20', '25', '44'), (NULL, 'Gỗ', '2022-05-20', '25', '8'), (NULL, 'Gỗ', '2022-05-20', '25', '9'), (NULL, 'Gỗ', '2022-05-20', '25', '45'), (NULL, 'Gỗ', '2022-05-20', '25', '46'), (NULL, 'Gỗ', '2022-05-20', '25', '2'), (NULL, 'Gỗ', '2022-05-20', '25', '47'), (NULL, 'Gỗ', '2022-05-20', '25', '3'), (NULL, 'Gỗ', '2022-05-20', '25', '48'), (NULL, 'Bàn máy tính (Gỗ)', '2022-05-20', '35', '4'), (NULL, 'Bàn máy tính (Gỗ)', '2022-05-20', '35', '5'), (NULL, 'Gỗ', '2022-05-20', '25', '49'), (NULL, 'Gỗ', '2022-05-20', '50', '54'), (NULL, 'Gỗ', '2022-05-20', '40', '55'), (NULL, 'Gỗ', '2022-05-20', '40', '56'), (NULL, 'Gỗ', '2022-05-20', '50', '57'), (NULL, 'Gỗ', '2022-05-20', '30', '58'), (NULL, 'Gỗ', '2022-05-20', '40', '59'), (NULL, 'Gỗ', '2022-05-20', '40', '60'), (NULL, 'Gỗ', '2022-05-20', '40', '61');
 
 INSERT INTO `tinhtrangbanghe` (`ID_banghe`, `ngay`, `tinhtrang`, `soluonghuhai`) VALUES ('1', '2022-05-20', '0', '0'), ('2', '2022-05-20', '0', '0'), ('3', '2022-05-20', '0', '0'), ('4', '2022-05-20', '0', '0'), ('5', '2022-05-20', '0', '0'), ('6', '2022-05-20', '0', '0'), ('7', '2022-05-20', '0', '0'), ('8', '2022-05-20', '0', '0'), ('9', '2022-05-20', '0', '0'), ('10', '2022-05-20', '0', '0'), ('11', '2022-05-20', '0', '0'), ('12', '2022-05-20', '0', '0'), ('13', '2022-05-20', '0', '0'), ('14', '2022-05-20', '0', '0'), ('15', '2022-05-20', '0', '0'), ('16', '2022-05-20', '0', '0'), ('17', '2022-05-20', '0', '0'), ('18', '2022-05-20', '0', '0'), ('19', '2022-05-20', '0', '0'), ('20', '2022-05-20', '0', '0'), ('21', '2022-05-20', '0', '0'), ('22', '2022-05-20', '0', '0'), ('23', '2022-05-20', '0', '0'), ('24', '2022-05-20', '0', '0'), ('25', '2022-05-20', '0', '0'), ('26', '2022-05-20', '0', '0'), ('27', '2022-05-20', '0', '0'), ('28', '2022-05-20', '0', '0'), ('29', '2022-05-20', '0', '0'), ('30', '2022-05-20', '0', '0'), ('31', '2022-05-20', '0', '0');
+
+INSERT INTO `loaiquat` (`ID_loaiquat`, `Ten_loaiquat`) VALUES (NULL, 'Quạt trần'), (NULL, 'Quạt treo tường');

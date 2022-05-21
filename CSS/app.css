@@ -83,11 +83,23 @@ main {
 .status--good {
   background-color: #00f5d4 !important;
 }
+.status--good--text {
+  color: #00f5d4 !important;
+  font-weight: 600;
+}
 .status--notgood {
   background-color: #ffb703 !important;
 }
+.status--notgood--text {
+  color: #ffb703 !important;
+  font-weight: 600;
+}
 .status--damage {
   background-color: #e63946 !important;
+}
+.status--damage--text {
+  color: #e63946 !important;
+  font-weight: 600;
 }
 .status--text {
   font-size: 20px;
@@ -133,6 +145,13 @@ main {
 
 .classroom, .device {
   height: 100vh;
+}
+
+.roomname {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: -20px;
 }
 
 .modal__btn--close {
