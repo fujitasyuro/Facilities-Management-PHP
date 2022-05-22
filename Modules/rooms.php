@@ -84,7 +84,7 @@ if ($ID_loaiphong == 1) {
             <div class="table__add__option">
               <ul>
                 <li>
-                  <a href="./APP/ADD/addNewTable.html" class="add--option">Thêm bàn mới</a>
+                  <a href="./APP/ADD/addNewTable.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm bàn mới</a>
                 </li>
                 <li>
                   <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -151,7 +151,7 @@ if ($ID_loaiphong == 1) {
         <div class="complement__add__option">
           <ul>
             <li>
-              <a href="./APP/ADD/addNewFan.html" class="add--option">Thêm quạt mới</a>
+              <a href="./APP/ADD/addNewFan.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm quạt mới</a>
             </li>
             <li>
               <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -176,7 +176,7 @@ if ($ID_loaiphong == 1) {
         <div class="complement__add__option">
           <ul>
             <li>
-              <a href="#" class="add--option">Thêm quạt mới</a>
+              <a href="./APP/ADD/addNewFan.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm đèn mới</a>
             </li>
             <li>
               <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -201,7 +201,7 @@ if ($ID_loaiphong == 1) {
         <div class="complement__add__option">
           <ul>
             <li>
-              <a href="#" class="add--option">Thêm máy lạnh mới</a>
+              <a href="./APP/ADD/addNewConditioner.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy lạnh mới</a>
             </li>
             <li>
               <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -289,7 +289,7 @@ if ($ID_loaiphong == 1) {
             <div class="table__add__option">
               <ul>
                 <li>
-                  <a href="./APP/ADD/addNewTable.html" class="add--option">Thêm bàn mới</a>
+                  <a href="./APP/ADD/addNewTable.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm bàn mới</a>
                 </li>
                 <li>
                   <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -356,7 +356,7 @@ if ($ID_loaiphong == 1) {
         <div class="complement__add__option">
           <ul>
             <li>
-              <a href="./APP/ADD/addNewFan.html" class="add--option">Thêm quạt mới</a>
+              <a href="./APP/ADD/addNewFan.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm quạt mới</a>
             </li>
             <li>
               <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -381,7 +381,7 @@ if ($ID_loaiphong == 1) {
         <div class="complement__add__option">
           <ul>
             <li>
-              <a href="#" class="add--option">Thêm quạt mới</a>
+              <a href="./APP/ADD/addNewLamps.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm đèn mới</a>
             </li>
             <li>
               <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -406,7 +406,7 @@ if ($ID_loaiphong == 1) {
         <div class="complement__add__option">
           <ul>
             <li>
-              <a href="#" class="add--option">Thêm loa mới</a>
+              <a href="./APP/ADD/addNewSpeaker.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm loa mới</a>
             </li>
             <li>
               <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -442,7 +442,7 @@ if ($ID_loaiphong == 1) {
 
   <div class="room__content" id="rooms__room__content">
     <div class="room__content--main">
-      <!-- MÁY TÍNH -->
+      <!-- MÁY CHIẾU -->
       <div class="computer">
         <div class="computer--box">
           <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="maychieu">
@@ -454,7 +454,7 @@ if ($ID_loaiphong == 1) {
             <div class="computer__add__option">
               <ul>
                 <li>
-                  <a href="./APP/ADD/addNewComputer.html" class="add--option">Thêm máy mới</a>
+                  <a href="./APP/ADD/addNewProjector.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy mới</a>
                 </li>
                 <li>
                   <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -494,7 +494,7 @@ if ($ID_loaiphong == 1) {
             <div class="table__add__option">
               <ul>
                 <li>
-                  <a href="./APP/ADD/addNewTable.html" class="add--option">Thêm bàn mới</a>
+                  <a href="./APP/ADD/addNewTable.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm bàn mới</a>
                 </li>
                 <li>
                   <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -561,7 +561,7 @@ if ($ID_loaiphong == 1) {
         <div class="complement__add__option">
           <ul>
             <li>
-              <a href="./APP/ADD/addNewFan.html" class="add--option">Thêm quạt mới</a>
+              <a href="./APP/ADD/addNewFan.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm quạt mới</a>
             </li>
             <li>
               <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -586,7 +586,7 @@ if ($ID_loaiphong == 1) {
         <div class="complement__add__option">
           <ul>
             <li>
-              <a href="#" class="add--option">Thêm quạt mới</a>
+              <a href="./APP/ADD/addNewLamps.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm quạt mới</a>
             </li>
             <li>
               <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -611,7 +611,7 @@ if ($ID_loaiphong == 1) {
         <div class="complement__add__option">
           <ul>
             <li>
-              <a href="#" class="add--option">Thêm máy lạnh mới</a>
+              <a href="./APP/ADD/addNewSpeaker.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy lạnh mới</a>
             </li>
             <li>
               <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -764,7 +764,7 @@ if ($ID_loaiphong == 1) {
         <div class="complement__add__option">
           <ul>
             <li>
-              <a href="./APP/ADD/addNewFan.html" class="add--option">Thêm quạt mới</a>
+              <a href="./APP/ADD/addNewFan.php" class="add--option">Thêm quạt mới</a>
             </li>
             <li>
               <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
@@ -789,7 +789,7 @@ if ($ID_loaiphong == 1) {
         <div class="complement__add__option">
           <ul>
             <li>
-              <a href="#" class="add--option">Thêm quạt mới</a>
+              <a href="./APP/ADD/addNewFan.php" class="add--option">Thêm quạt mới</a>
             </li>
             <li>
               <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>

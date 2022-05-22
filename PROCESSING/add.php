@@ -3,7 +3,7 @@ include("../db_conn.php")
 ?>
 <?php
 $process = $_GET["process"];
-if ($process = "themmaytinh") { ?>
+if ($process == "themmaytinh") { ?>
 
   <?php
   $ID_phong = $_GET["ID_phong"];
@@ -43,4 +43,34 @@ if ($process = "themmaytinh") { ?>
 
   ?>
 
+<?php } elseif ($process == "themquat") { ?>
+  <?php
+  $ID_phong = $_GET["ID_phong"];
+  $ID_loaiquat = $_GET["loaiquat"];
+  $Ten_quat = $_GET["tenquat"];
+  $Ngay_mua_quat = $_GET["ngaymua"];
+  ?>
+
+  <?php
+  $sql = "INSERT INTO quat (ID_loaiquat, Ten_quat, Ngay_mua_quat, ID_phong) VALUES (:loaiquat, :tenquat, :ngaymua, :ID_phong)";
+
+  $stmt = $conn->prepare($sql);
+
+  $stmt->execute(["loaiquat" => $ID_loaiquat, "tenquat" => $Ten_quat, "ngaymua" => $Ngay_mua_quat, "ID_phong" => $ID_phong]);
+
+  $getid = $conn->query("SELECT ID_quat FROM quat ORDER BY ID_quat DESC LIMIT 1");
+  $getidmoi = $getid->fetch(PDO::FETCH_ASSOC);
+
+  $idmaymoi = $getidmoi["ID_quat"];
+  $tinhtrang = 1;
+
+  $sql2 = "INSERT INTO tinhtrangquat (ID_quat, ngay, tinhtrang) VALUES (:ID_moi, :dateAdd, :tinhtrang)";
+
+  $stmt2 = $conn->prepare($sql2);
+
+  $stmt2->execute(["ID_moi" => $idmaymoi, "dateAdd" => $Ngay_mua_quat, "tinhtrang" => $tinhtrang]);
+
+  echo '<h2 style="text-align: center;">ĐÃ THÊM</h2>';
+
+  ?>
 <?php } ?>
