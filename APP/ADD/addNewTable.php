@@ -1,106 +1,91 @@
+<?php
+include("../../db_conn.php");
+$ID_phong = $_GET["ID_phong"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thêm bàn ghế</title>
-    <link
-      rel="shortcut icon"
-      href="../../IMG/logo-ctu.png"
-      type="image/x-icon"
-    />
-    <script
-      src="https://kit.fontawesome.com/15d8d80360.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="../../CSS/app.css" />
-  </head>
-  <body>
-    <header>
-      <div class="nav">
-        <div class="nav__logo">
-          <a href="../../index.php">
-            <img
-              src="../../IMG/logo-ctu.png"
-              alt="CTU Logo"
-              class="nav__logo--img"
-            />
-          </a>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thêm bàn ghế</title>
+  <link rel="shortcut icon" href="../../IMG/logo-ctu.png" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/15d8d80360.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../CSS/app.css" />
+  <script src="../../JS/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="nav__logo">
+        <a href="../../index.php">
+          <img src="../../IMG/logo-ctu.png" alt="CTU Logo" class="nav__logo--img" />
+        </a>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="form__container">
-      <h1>THÊM BÀN GHẾ</h1>
+  <main class="form__container">
+    <h2 id="notiAdd"></h2>
+    <h1>THÊM BÀN GHẾ</h1>
 
-      <form action="#">
-        <h2>Bàn</h2>
+    <div class="add--minibox">
+      <label for="table-name">
+        <span class="input--title">Tên bàn ghế (chất liệu):</span>
+        <input type="text" id="table-name" class="input--text" placeholder="Nhập tên bàn ghế (chất liệu)" />
+      </label>
+    </div>
 
-        <div class="add--minibox">
-          <label for="table-type">
-            <span class="input--title">Loại bàn (Chất liệu):</span>
-            <input
-              type="text"
-              name="table-type"
-              id="table-type"
-              class="input--text"
-              placeholder="Nhập chất liệu bàn"
-            />
-          </label>
-        </div>
+    <div class="add--minibox">
+      <label for="table-num">
+        <span class="input--title">Số lượng:</span>
+        <input type="text" id="table-num" class="input--text" placeholder="Nhập số lượng thêm" />
+      </label>
+    </div>
 
-        <div class="add--minibox">
-          <label for="numberOfTables">
-            <span class="input--title">Số lượng bàn:</span>
-            <input
-              type="text"
-              name="numberOfTables"
-              id="numberOfTables"
-              class="input--text"
-              placeholder="Nhập số lượng bàn"
-            />
-          </label>
-        </div>
+    <div class="add--minibox">
+      <label for="date-add">
+        <span class="input--title">Ngày thêm:</span>
+        <input type="date" id="date-add" class="input--text" />
+      </label>
+    </div>
 
-        <h2>Ghế</h2>
+    <input type="text" id="ID_phong" value="<?php echo ($ID_phong) ?>" style="display: none;">
+    <input type="text" id="thembanghe-btn" value="thembanghe" style="display: none;">
 
-        <div class="add--minibox">
-          <label for="chair-type">
-            <span class="input--title">Loại ghế (Chất liệu):</span>
-            <input
-              type="text"
-              name="chair-type"
-              id="chair-type"
-              class="input--text"
-              placeholder="Nhập chất liệu ghế"
-            />
-          </label>
-        </div>
+    <div class="btn__box">
+      <button class="btn btn__submit" id="addtable">Thêm</button>
+      <input type="reset" class="btn btn__reset" />
+    </div>
+  </main>
 
-        <div class="add--minibox">
-          <label for="numberOfChair">
-            <span class="input--title">Số lượng ghế:</span>
-            <input
-              type="text"
-              name="numberOfChair"
-              id="numberOfChair"
-              class="input--text"
-              placeholder="Nhập số lượng ghế"
-            />
-          </label>
-        </div>
+  <script>
+    $(document).ready(function() {
+      $("#addtable").click(function() {
+        var ID_phong = $("#ID_phong").val();
+        var process = $("#thembanghe-btn").val();
+        var tenbanghe = $("#table-name").val();
+        var soluong = $("#table-num").val();
+        var ngaymua = $("#date-add").val();
 
-        <div class="btn__box">
-          <input
-            type="submit"
-            value="Thêm"
-            class="btn btn__submit"
-            name="addtable"
-          />
-          <input type="reset" class="btn btn__reset" />
-        </div>
-      </form>
-    </main>
-  </body>
+        $.get(
+          "../../PROCESSING/add.php", {
+            process: process,
+            ID_phong: ID_phong,
+            tenbanghe: tenbanghe,
+            soluong: soluong,
+            ngaymua: ngaymua
+          },
+          function(data) {
+            $("#notiAdd").html(data);
+          }
+        );
+      });
+    });
+  </script>
+</body>
+
 </html>

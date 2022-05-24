@@ -261,6 +261,7 @@ main {
   background-color: #00b4d8;
   border: 2px solid #00b4d8;
   font-size: 16px;
+  width: 120px;
 }
 .btn__reset {
   cursor: pointer;
@@ -292,7 +293,7 @@ main {
 }
 .input--text {
   position: absolute;
-  left: 170px;
+  left: 185px;
   width: 600px;
   top: 50%;
   transform: translateY(-50%);

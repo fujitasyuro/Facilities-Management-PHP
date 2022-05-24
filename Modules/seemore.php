@@ -136,9 +136,9 @@ if ($queryTable == "maytinh") {
 
             $tinhtrangmay = $tinhtrang->fetch(PDO::FETCH_ASSOC);
             if ($tinhtrangmay["tinhtrang"] == 0) {
-              echo '<span class="status--good--text">Hoạt động bình thường</span>';
+              echo '<span class="status--good--text">Có hư hại</span>';
             } else {
-              echo '<span class="status--damage--text">Có hư hại</span>';
+              echo '<span class="status--damage--text">Hoạt động bình thường</span>';
             }
             ?>
           </td>
@@ -199,9 +199,9 @@ if ($queryTable == "maytinh") {
 
             $tinhtrangmay = $tinhtrang->fetch(PDO::FETCH_ASSOC);
             if ($tinhtrangmay["tinhtrang"] == 0) {
-              echo '<span class="status--good--text">Hoạt động bình thường</span>';
+              echo '<span class="status--good--text">Có hư hại</span>';
             } else {
-              echo '<span class="status--damage--text">Có hư hại</span>';
+              echo '<span class="status--damage--text">Hoạt động bình thường</span>';
             }
             ?>
           </td>
@@ -254,9 +254,9 @@ if ($queryTable == "maytinh") {
 
             $tinhtrangmay = $tinhtrang->fetch(PDO::FETCH_ASSOC);
             if ($tinhtrangmay["tinhtrang"] == 0) {
-              echo '<span class="status--good--text">Hoạt động bình thường</span>';
+              echo '<span class="status--good--text">Có hư hại</span>';
             } else {
-              echo '<span class="status--damage--text">Có hư hại</span>';
+              echo '<span class="status--damage--text">Hoạt động bình thường</span>';
             }
             ?>
           </td>
@@ -309,9 +309,9 @@ if ($queryTable == "maytinh") {
 
             $tinhtrangmay = $tinhtrang->fetch(PDO::FETCH_ASSOC);
             if ($tinhtrangmay["tinhtrang"] == 0) {
-              echo '<span class="status--good--text">Hoạt động bình thường</span>';
+              echo '<span class="status--good--text">Có hư hại</span>';
             } else {
-              echo '<span class="status--damage--text">Có hư hại</span>';
+              echo '<span class="status--damage--text">Hoạt động bình thường</span>';
             }
             ?>
           </td>
@@ -364,9 +364,9 @@ if ($queryTable == "maytinh") {
 
             $tinhtrangmay = $tinhtrang->fetch(PDO::FETCH_ASSOC);
             if ($tinhtrangmay["tinhtrang"] == 0) {
-              echo '<span class="status--good--text">Hoạt động bình thường</span>';
+              echo '<span class="status--good--text">Có hư hại</span>';
             } else {
-              echo '<span class="status--damage--text">Có hư hại</span>';
+              echo '<span class="status--damage--text">Hoạt động bình thường</span>';
             }
             ?>
           </td>
@@ -419,9 +419,9 @@ if ($queryTable == "maytinh") {
 
             $tinhtrangmay = $tinhtrang->fetch(PDO::FETCH_ASSOC);
             if ($tinhtrangmay["tinhtrang"] == 0) {
-              echo '<span class="status--good--text">Hoạt động bình thường</span>';
+              echo '<span class="status--good--text">Có hư hại</span>';
             } else {
-              echo '<span class="status--damage--text">Có hư hại</span>';
+              echo '<span class="status--damage--text">Hoạt động bình thường</span>';
             }
             ?>
           </td>
@@ -474,9 +474,9 @@ if ($queryTable == "maytinh") {
 
             $tinhtrangmay = $tinhtrang->fetch(PDO::FETCH_ASSOC);
             if ($tinhtrangmay["tinhtrang"] == 0) {
-              echo '<span class="status--good--text">Hoạt động bình thường</span>';
+              echo '<span class="status--good--text">Có hư hại</span>';
             } else {
-              echo '<span class="status--damage--text">Có hư hại</span>';
+              echo '<span class="status--damage--text">Hoạt động bình thường</span>';
             }
             ?>
           </td>

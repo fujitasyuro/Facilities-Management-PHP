@@ -10,7 +10,7 @@ $ID_phong = $_GET["ID_phong"];
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thêm loa</title>
+  <title>Thêm Tivi</title>
   <link rel="shortcut icon" href="../../IMG/logo-ctu.png" type="image/x-icon" />
   <script src="https://kit.fontawesome.com/15d8d80360.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../../CSS/app.css" />
@@ -30,12 +30,12 @@ $ID_phong = $_GET["ID_phong"];
 
   <main class="form__container">
     <h2 id="notiAdd"></h2>
-    <h1>THÊM LOA</h1>
+    <h1>THÊM TIVI</h1>
 
     <div class="add--minibox">
-      <label for="speaker-name">
-        <span class="input--title">Tên loa:</span>
-        <input type="text" id="speaker-name" class="input--text" placeholder="Nhập tên loa" />
+      <label for="tivi-name">
+        <span class="input--title">Tên tivi:</span>
+        <input type="text" id="tivi-name" class="input--text" placeholder="Nhập tên tivi" />
       </label>
     </div>
 
@@ -47,27 +47,27 @@ $ID_phong = $_GET["ID_phong"];
     </div>
 
     <input type="text" id="ID_phong" value="<?php echo ($ID_phong) ?>" style="display: none;">
-    <input type="text" id="themloa-btn" value="themloa" style="display: none;">
+    <input type="text" id="themtivi-btn" value="themtivi" style="display: none;">
 
     <div class="btn__box">
-      <button class="btn btn__submit" id="addspeaker">Thêm</button>
+      <button class="btn btn__submit" id="addtivi">Thêm</button>
       <input type="reset" class="btn btn__reset" />
     </div>
   </main>
 
   <script>
     $(document).ready(function() {
-      $("#addspeaker").click(function() {
+      $("#addtivi").click(function() {
         var ID_phong = $("#ID_phong").val();
-        var process = $("#themloa-btn").val();
-        var tenloa = $("#speaker-name").val();
+        var process = $("#themtivi-btn").val();
+        var tentivi = $("#tivi-name").val();
         var ngaymua = $("#date-add").val();
 
         $.get(
           "../../PROCESSING/add.php", {
             process: process,
             ID_phong: ID_phong,
-            tenloa: tenloa,
+            tentivi: tentivi,
             ngaymua: ngaymua
           },
           function(data) {
