@@ -204,6 +204,17 @@ main {
   color: #0077ff;
   transform: scale(1.5);
 }
+.modal__btn--add--disable {
+  font-size: 18px;
+  position: absolute;
+  bottom: 10px;
+  left: 18px;
+  cursor: default;
+  z-index: 90;
+  background: none;
+  transition: all 0.15s linear;
+  color: #a3b18a;
+}
 .modal__btn--report {
   font-size: 18px;
   cursor: pointer;
@@ -274,6 +285,14 @@ main {
   padding: 10px 35px;
   border-radius: 15px;
   border: 2px solid #00b4d8;
+  background-color: transparent;
+  font-size: 16px;
+}
+.btn__delete {
+  cursor: pointer;
+  padding: 10px 35px;
+  border-radius: 15px;
+  border: 2px solid #ef233c;
   background-color: transparent;
   font-size: 16px;
 }

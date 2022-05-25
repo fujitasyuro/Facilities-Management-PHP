@@ -52,19 +52,26 @@ if ($ID_loaiphong == 1) {
             <i class="fa-regular fa-eye"></i>
           </bottom>
           <!-- THÊM MÁY TÍNH -->
-          <bottom class="modal__btn--add">
-            <i class="fa-solid fa-plus"></i>
-            <div class="computer__add__option">
-              <ul>
-                <li>
-                  <a href="./APP/ADD/addNewComputer.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy mới</a>
-                </li>
-                <li>
-                  <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
-                </li>
-              </ul>
-            </div>
-          </bottom>
+
+          <?php if ($somaydalap['somaydalap'] < $roomContent['soluongmaytinh']) { ?>
+            <bottom class="modal__btn--add">
+              <i class="fa-solid fa-plus"></i>
+              <div class="computer__add__option">
+                <ul>
+                  <li>
+                    <a href="./APP/ADD/addNewComputer.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy mới</a>
+                  </li>
+                  <li>
+                    <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
+                  </li>
+                </ul>
+              </div>
+            </bottom>
+          <?php } else { ?>
+            <bottom class="modal__btn--add--disable">
+              <i class="fa-solid fa-plus"></i>
+            </bottom>
+          <?php } ?>
 
           <h1 class="title--large">MÁY TÍNH</h1>
           <div class="detail">
@@ -93,19 +100,25 @@ if ($ID_loaiphong == 1) {
       <!-- BÀN GHẾ -->
       <div class="table">
         <div class="table--box">
-          <bottom class="modal__btn--add">
-            <i class="fa-solid fa-plus"></i>
-            <div class="table__add__option">
-              <ul>
-                <li>
-                  <a href="./APP/ADD/addNewTable.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm bàn mới</a>
-                </li>
-                <li>
-                  <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
-                </li>
-              </ul>
-            </div>
-          </bottom>
+          <?php if ($sobandalap["soluong"] < $roomContent['soluongbanghe']) { ?>
+            <bottom class="modal__btn--add">
+              <i class="fa-solid fa-plus"></i>
+              <div class="table__add__option">
+                <ul>
+                  <li>
+                    <a href="./APP/ADD/addNewTable.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm bàn mới</a>
+                  </li>
+                  <li>
+                    <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
+                  </li>
+                </ul>
+              </div>
+            </bottom>
+          <?php } else { ?>
+            <bottom class="modal__btn--add--disable">
+              <i class="fa-solid fa-plus"></i>
+            </bottom>
+          <?php } ?>
           <button class="modal__btn--report--all">
             <a class="a__btn a__btn--report" href="./APP/REPORT/reportTable.php?ID_phong=<?php echo ($ID_phong); ?>&ID_banghe=<?php echo $ID_banghe ?>>">
               <i class="fa-solid fa-circle-exclamation"></i>
@@ -450,19 +463,27 @@ if ($ID_loaiphong == 1) {
             <i class="fa-regular fa-eye"></i>
           </bottom>
           <!-- THÊM TIVI -->
-          <bottom class="modal__btn--add">
-            <i class="fa-solid fa-plus"></i>
-            <div class="computer__add__option">
-              <ul>
-                <li>
-                  <a href="./APP/ADD/addNewTivi.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm tivi mới</a>
-                </li>
-                <li>
-                  <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
-                </li>
-              </ul>
-            </div>
-          </bottom>
+
+          <?php if ($sotividalap['sotividalap'] < $roomContent['soluongtivi']) { ?>
+            <bottom class="modal__btn--add">
+              <i class="fa-solid fa-plus"></i>
+              <div class="computer__add__option">
+                <ul>
+                  <li>
+                    <a href="./APP/ADD/addNewTivi.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm tivi mới</a>
+                  </li>
+                  <li>
+                    <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
+                  </li>
+                </ul>
+              </div>
+            </bottom>
+          <?php } else { ?>
+            <bottom class="modal__btn--add--disable">
+              <i class="fa-solid fa-plus"></i>
+            </bottom>
+          <?php } ?>
+
           <h1 class="title--large">TIVI</h1>
           <div class="detail">
             <div class="detail__amount">
@@ -490,19 +511,25 @@ if ($ID_loaiphong == 1) {
       <!-- BÀN GHẾ -->
       <div class="table">
         <div class="table--box">
-          <bottom class="modal__btn--add">
-            <i class="fa-solid fa-plus"></i>
-            <div class="table__add__option">
-              <ul>
-                <li>
-                  <a href="./APP/ADD/addNewTable.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm bàn mới</a>
-                </li>
-                <li>
-                  <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
-                </li>
-              </ul>
-            </div>
-          </bottom>
+          <?php if ($sobandalap["soluong"] < $roomContent['soluongbanghe']) { ?>
+            <bottom class="modal__btn--add">
+              <i class="fa-solid fa-plus"></i>
+              <div class="table__add__option">
+                <ul>
+                  <li>
+                    <a href="./APP/ADD/addNewTable.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm bàn mới</a>
+                  </li>
+                  <li>
+                    <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
+                  </li>
+                </ul>
+              </div>
+            </bottom>
+          <?php } else { ?>
+            <bottom class="modal__btn--add--disable">
+              <i class="fa-solid fa-plus"></i>
+            </bottom>
+          <?php } ?>
           <button class="modal__btn--report--all">
             <a class="a__btn a__btn--report" href="./APP/REPORT/reportTable.php?ID_phong=<?php echo ($ID_phong); ?>&ID_banghe=<?php echo $ID_banghe ?>">
               <i class="fa-solid fa-circle-exclamation"></i>
@@ -847,19 +874,27 @@ if ($ID_loaiphong == 1) {
             <i class="fa-regular fa-eye"></i>
           </bottom>
           <!-- THÊM MÁY CHIẾU -->
-          <bottom class="modal__btn--add">
-            <i class="fa-solid fa-plus"></i>
-            <div class="computer__add__option">
-              <ul>
-                <li>
-                  <a href="./APP/ADD/addNewProjector.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy mới</a>
-                </li>
-                <li>
-                  <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
-                </li>
-              </ul>
-            </div>
-          </bottom>
+
+          <?php if ($somaychieudalap['somaychieudalap'] < $roomContent['soluongmaychieu']) { ?>
+            <bottom class="modal__btn--add">
+              <i class="fa-solid fa-plus"></i>
+              <div class="computer__add__option">
+                <ul>
+                  <li>
+                    <a href="./APP/ADD/addNewProjector.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy mới</a>
+                  </li>
+                  <li>
+                    <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
+                  </li>
+                </ul>
+              </div>
+            </bottom>
+          <?php } else { ?>
+            <bottom class="modal__btn--add--disable">
+              <i class="fa-solid fa-plus"></i>
+            </bottom>
+          <?php } ?>
+
           <h1 class="title--large">MÁY CHIẾU</h1>
           <div class="detail">
             <div class="detail__amount">
@@ -887,19 +922,25 @@ if ($ID_loaiphong == 1) {
       <!-- BÀN GHẾ -->
       <div class="table">
         <div class="table--box">
-          <bottom class="modal__btn--add">
-            <i class="fa-solid fa-plus"></i>
-            <div class="table__add__option">
-              <ul>
-                <li>
-                  <a href="./APP/ADD/addNewTable.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm bàn mới</a>
-                </li>
-                <li>
-                  <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
-                </li>
-              </ul>
-            </div>
-          </bottom>
+          <?php if ($sobandalap["soluong"] < $roomContent['soluongbanghe']) { ?>
+            <bottom class="modal__btn--add">
+              <i class="fa-solid fa-plus"></i>
+              <div class="table__add__option">
+                <ul>
+                  <li>
+                    <a href="./APP/ADD/addNewTable.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm bàn mới</a>
+                  </li>
+                  <li>
+                    <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
+                  </li>
+                </ul>
+              </div>
+            </bottom>
+          <?php } else { ?>
+            <bottom class="modal__btn--add--disable">
+              <i class="fa-solid fa-plus"></i>
+            </bottom>
+          <?php } ?>
           <button class="modal__btn--report--all">
             <a class="a__btn a__btn--report" href="./APP/REPORT/reportTable.php?ID_phong=<?php echo ($ID_phong); ?>&ID_banghe=<?php echo $ID_banghe ?>">
               <i class="fa-solid fa-circle-exclamation"></i>

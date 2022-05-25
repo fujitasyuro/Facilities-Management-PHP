@@ -88,7 +88,9 @@ if ($queryTable == "maytinh") {
           </td>
           <td>
             <button class="modal__btn--delete">
-              <i class="fa-regular fa-trash-can"></i>
+              <a href="./APP/DELETE/deleteComputer.php?ID_maytinh=<?php echo $ID_maytinh ?>" class="a__btn a__btn--deletemodal__btn--delete modal__btn--delete">
+                <i class="fa-regular fa-trash-can"></i>
+              </a>
             </button>
             <button class="modal__btn--edit">
               <i class="fa-regular fa-pen-to-square"></i>
@@ -150,7 +152,7 @@ if ($queryTable == "maytinh") {
               <i class="fa-regular fa-pen-to-square"></i>
             </button>
             <button class="modal__btn--report">
-              <a href="./APP/REPORT/reportComputer.html" class="a__btn a__btn--report">
+              <a href="./APP/REPORT/reportComputer.php?ID_phong=<?php echo ($ID_phong); ?>&ID_maytinh=<?php echo $ID_maytinh ?>" class="a__btn a__btn--report">
                 <i class="fa-solid fa-circle-exclamation"></i>
               </a>
             </button>
@@ -213,7 +215,7 @@ if ($queryTable == "maytinh") {
               <i class="fa-regular fa-pen-to-square"></i>
             </button>
             <button class="modal__btn--report">
-              <a href="./APP/REPORT/reportComputer.html" class="a__btn a__btn--report">
+              <a href="./APP/REPORT/reportComputer.php?ID_phong=<?php echo ($ID_phong); ?>&ID_maytinh=<?php echo $ID_maytinh ?>" class="a__btn a__btn--report">
                 <i class="fa-solid fa-circle-exclamation"></i>
               </a>
             </button>
@@ -268,7 +270,7 @@ if ($queryTable == "maytinh") {
               <i class="fa-regular fa-pen-to-square"></i>
             </button>
             <button class="modal__btn--report">
-              <a href="./APP/REPORT/reportComputer.html" class="a__btn a__btn--report">
+              <a href="./APP/REPORT/reportComputer.php?ID_phong=<?php echo ($ID_phong); ?>&ID_maytinh=<?php echo $ID_maytinh ?>" class="a__btn a__btn--report">
                 <i class="fa-solid fa-circle-exclamation"></i>
               </a>
             </button>
@@ -323,7 +325,7 @@ if ($queryTable == "maytinh") {
               <i class="fa-regular fa-pen-to-square"></i>
             </button>
             <button class="modal__btn--report">
-              <a href="./APP/REPORT/reportComputer.html" class="a__btn a__btn--report">
+              <a href="./APP/REPORT/reportComputer.php?ID_phong=<?php echo ($ID_phong); ?>&ID_maytinh=<?php echo $ID_maytinh ?>" class="a__btn a__btn--report">
                 <i class="fa-solid fa-circle-exclamation"></i>
               </a>
             </button>
@@ -378,7 +380,7 @@ if ($queryTable == "maytinh") {
               <i class="fa-regular fa-pen-to-square"></i>
             </button>
             <button class="modal__btn--report">
-              <a href="./APP/REPORT/reportComputer.html" class="a__btn a__btn--report">
+              <a href="./APP/REPORT/reportComputer.php?ID_phong=<?php echo ($ID_phong); ?>&ID_maytinh=<?php echo $ID_maytinh ?>" class="a__btn a__btn--report">
                 <i class="fa-solid fa-circle-exclamation"></i>
               </a>
             </button>
@@ -433,7 +435,7 @@ if ($queryTable == "maytinh") {
               <i class="fa-regular fa-pen-to-square"></i>
             </button>
             <button class="modal__btn--report">
-              <a href="./APP/REPORT/reportComputer.html" class="a__btn a__btn--report">
+              <a href="./APP/REPORT/reportComputer.php?ID_phong=<?php echo ($ID_phong); ?>&ID_maytinh=<?php echo $ID_maytinh ?>" class="a__btn a__btn--report">
                 <i class="fa-solid fa-circle-exclamation"></i>
               </a>
             </button>
@@ -488,7 +490,7 @@ if ($queryTable == "maytinh") {
               <i class="fa-regular fa-pen-to-square"></i>
             </button>
             <button class="modal__btn--report">
-              <a href="./APP/REPORT/reportComputer.html" class="a__btn a__btn--report">
+              <a href="./APP/REPORT/reportComputer.php?ID_phong=<?php echo ($ID_phong); ?>&ID_maytinh=<?php echo $ID_maytinh ?>" class="a__btn a__btn--report">
                 <i class="fa-solid fa-circle-exclamation"></i>
               </a>
             </button>

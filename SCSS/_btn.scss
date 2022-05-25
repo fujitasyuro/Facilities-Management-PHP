@@ -47,6 +47,18 @@
         color: rgb(0, 119, 255);
         transform: scale(1.5);
       }
+
+      &--disable {
+        font-size: 18px;
+        position: absolute;
+        bottom: 10px;
+        left: 18px;
+        cursor: default;
+        z-index: 90;
+        background: none;
+        transition: all 0.15s linear;
+        color: #a3b18a;
+      }
     }
 
     &--report {
@@ -130,6 +142,15 @@
     padding: 10px 35px;
     border-radius: 15px;
     border: 2px solid $main-color;
+    background-color: transparent;
+    font-size: 16px;
+  }
+
+  &__delete {
+    cursor: pointer;
+    padding: 10px 35px;
+    border-radius: 15px;
+    border: 2px solid $tivi-room-color;
     background-color: transparent;
     font-size: 16px;
   }
