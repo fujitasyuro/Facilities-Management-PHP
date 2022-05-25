@@ -71,6 +71,13 @@ main {
 
 .title--medium {
   font-size: 35px;
+  width: fit-content;
+}
+.title--mini {
+  margin-left: 10px;
+}
+.title--box {
+  margin-top: -15px;
 }
 
 .title--large {
@@ -261,7 +268,6 @@ main {
   background-color: #00b4d8;
   border: 2px solid #00b4d8;
   font-size: 16px;
-  width: 120px;
 }
 .btn__reset {
   cursor: pointer;

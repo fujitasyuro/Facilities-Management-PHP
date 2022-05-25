@@ -94,7 +94,7 @@ if ($queryTable == "maytinh") {
               <i class="fa-regular fa-pen-to-square"></i>
             </button>
             <button class="modal__btn--report">
-              <a href="./APP/REPORT/reportComputer.html" class="a__btn a__btn--report">
+              <a href="./APP/REPORT/reportComputer.php?ID_phong=<?php echo ($ID_phong); ?>&ID_maytinh=<?php echo $ID_maytinh ?>" class="a__btn a__btn--report">
                 <i class="fa-solid fa-circle-exclamation"></i>
               </a>
             </button>
@@ -199,9 +199,9 @@ if ($queryTable == "maytinh") {
 
             $tinhtrangmay = $tinhtrang->fetch(PDO::FETCH_ASSOC);
             if ($tinhtrangmay["tinhtrang"] == 0) {
-              echo '<span class="status--good--text">Có hư hại</span>';
+              echo '<span class="status--damage--text">Có hư hại</span>';
             } else {
-              echo '<span class="status--damage--text">Hoạt động bình thường</span>';
+              echo '<span class="status--good--text">Hoạt động bình thường</span>';
             }
             ?>
           </td>

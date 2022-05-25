@@ -17,64 +17,27 @@ if ($ID_loaiphong == 1) {
 
   <!-- QUERY BÀN GHẾ -->
   <?php
-  $table = $conn->query("SELECT SUM(tinhtrangbanghe.soluonghuhai) as soluonghuhai FROM tinhtrangbanghe, banghe WHERE tinhtrangbanghe.ID_banghe = banghe.ID_banghe AND banghe.ID_phong = $ID_phong");
-  $tableContent = $table->fetch(PDO::FETCH_ASSOC);
-
-  $bandalap = $conn->query("SELECT SUM(soluong) as soluong FROM banghe WHERE ID_phong = $ID_phong");
-  $sobandalap = $bandalap->fetch(PDO::FETCH_ASSOC);
-  ?>
-
-  <?php
-  $sobanghe = $roomContent['soluongbanghe'];
-  $sobanghehu = $tableContent['soluonghuhai'];
-
-  $sobanghedungduoc = $sobandalap["soluong"] - $sobanghehu;
+  include("../Query/tableQuery.php")
   ?>
 
   <!-- QUERY MÁY TÍNH -->
   <?php
-  $maytinhhong = $conn->query("SELECT COUNT(tinhtrangmaytinh.tinhtrang) as somayhong FROM maytinh, tinhtrangmaytinh WHERE maytinh.ID_maytinh = tinhtrangmaytinh.ID_maytinh AND maytinh.ID_phong = $ID_phong AND tinhtrangmaytinh.tinhtrang = 0");
-
-  $somayhong = $maytinhhong->fetch(PDO::FETCH_ASSOC);
-
-
-  $somaytinh = $conn->query("SELECT COUNT(maytinh.ID_maytinh) as somaydalap FROM maytinh WHERE maytinh.ID_phong = $ID_phong");
-
-  $somaydalap = $somaytinh->fetch(PDO::FETCH_ASSOC);
-
-  $somayhoatdong = $somaydalap['somaydalap'] - $somayhong['somayhong'];
+  include("../Query/computerQuery.php")
   ?>
 
   <!-- QUERY QUẠT -->
   <?php
-  $quathong = $conn->query("SELECT COUNT(tinhtrangquat.tinhtrang) as soquathong FROM quat, tinhtrangquat WHERE quat.ID_quat = tinhtrangquat.ID_quat AND quat.ID_phong = $ID_phong AND tinhtrangquat.tinhtrang = 0");
-
-  $soquathong = $quathong->fetch(PDO::FETCH_ASSOC);
-
-
-  $soquat = $conn->query("SELECT COUNT(ID_quat) as soquatdalap FROM quat WHERE quat.ID_phong = $ID_phong");
-
-  $soquatdalap = $soquat->fetch(PDO::FETCH_ASSOC);
-
-  $soquathoatdong = $soquatdalap['soquatdalap'] - $soquathong['soquathong'];
-
-  $quatcheck = $soquatdalap['soquatdalap'] - $soquathoatdong;
+  include("../Query/fanQuery.php")
   ?>
 
   <!-- QUERY ĐÈN -->
   <?php
-  $denhong = $conn->query("SELECT COUNT(tinhtrangden.tinhtrang) as sodenhong FROM den, tinhtrangden WHERE den.ID_den = tinhtrangden.ID_den AND den.ID_phong = $ID_phong AND tinhtrangden.tinhtrang = 0");
+  include("../Query/lampQuery.php")
+  ?>
 
-  $sodenhong = $denhong->fetch(PDO::FETCH_ASSOC);
-
-
-  $soden = $conn->query("SELECT COUNT(ID_den) as sodendalap FROM den WHERE den.ID_phong = $ID_phong");
-
-  $sodendalap = $soden->fetch(PDO::FETCH_ASSOC);
-
-  $sodenhoatdong = $sodendalap['sodendalap'] - $sodenhong['sodenhong'];
-
-  $dencheck = $sodendalap['sodendalap'] - $sodenhoatdong;
+  <!-- QUERY MÁY LẠNH -->
+  <?php
+  include("../Query/conditionerQuery.php")
   ?>
 
   <h1 class="roomname">PHÒNG <?php echo $roomContent['Ten_phong']; ?></h1>
@@ -144,7 +107,7 @@ if ($ID_loaiphong == 1) {
             </div>
           </bottom>
           <button class="modal__btn--report--all">
-            <a class="a__btn a__btn--report" href="./APP/REPORT/reportTable.html">
+            <a class="a__btn a__btn--report" href="./APP/REPORT/reportTable.php?ID_phong=<?php echo ($ID_phong); ?>&ID_banghe=<?php echo $ID_banghe ?>>">
               <i class="fa-solid fa-circle-exclamation"></i>
             </a>
           </button>
@@ -181,7 +144,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">QUẠT</h1>
+        <div class="title--box">
+          <span class="title--medium">QUẠT</span>
+          <span class="title--mini">Sức chứa: <?php echo $soquatdalap["soquatdalap"] ?> / <?php echo $roomContent['soluongquat']; ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soquathoatdong ?></span>
           <span class="detail--complement">/<?php echo $soquatdalap['soquatdalap'] ?></span>
@@ -208,7 +174,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">QUẠT</h1>
+        <div class="title--box">
+          <span class="title--medium">QUẠT</span>
+          <span class="title--mini">Sức chứa: <?php echo $soquatdalap["soquatdalap"] ?> / <?php echo $roomContent['soluongquat']; ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soquathoatdong ?></span>
           <span class="detail--complement">/<?php echo $soquatdalap['soquatdalap'] ?></span>
@@ -235,7 +204,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">QUẠT</h1>
+        <div class="title--box">
+          <span class="title--medium">QUẠT</span>
+          <span class="title--mini">Sức chứa: <?php echo $soquatdalap["soquatdalap"] ?> / <?php echo $roomContent['soluongquat']; ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soquathoatdong ?></span>
           <span class="detail--complement">/<?php echo $soquatdalap['soquatdalap'] ?></span>
@@ -265,7 +237,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">ĐÈN</h1>
+        <div class="title--box">
+          <span class="title--medium">ĐÈN</span>
+          <span class="title--mini">Sức chứa: <?php echo $sodendalap["sodendalap"] ?> / <?php echo $roomContent["soluongden"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $sodenhoatdong ?></span>
           <span class="detail--complement">/<?php echo $sodendalap['sodendalap']; ?></span>
@@ -290,7 +265,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">ĐÈN</h1>
+        <div class="title--box">
+          <span class="title--medium">ĐÈN</span>
+          <span class="title--mini">Sức chứa: <?php echo $sodendalap["sodendalap"] ?> / <?php echo $roomContent["soluongden"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $sodenhoatdong ?></span>
           <span class="detail--complement">/<?php echo $sodendalap['sodendalap']; ?></span>
@@ -315,7 +293,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">ĐÈN</h1>
+        <div class="title--box">
+          <span class="title--medium">ĐÈN</span>
+          <span class="title--mini">Sức chứa: <?php echo $sodendalap["sodendalap"] ?> / <?php echo $roomContent["soluongden"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $sodenhoatdong ?></span>
           <span class="detail--complement">/<?php echo $sodendalap['sodendalap']; ?></span>
@@ -337,30 +318,91 @@ if ($ID_loaiphong == 1) {
       </div>
     <?php } ?>
     <!-- MÁY LẠNH -->
-    <div class="air-conditioner room__content--complement--box status--good">
-      <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="maylanh">
-        <i class="fa-regular fa-eye"></i>
-      </bottom>
-      <h1 class="title--medium">MÁY LẠNH</h1>
-      <div class="amount">
-        <span class="detail--complement" style="font-weight: 600; font-size: 40px">2</span>
-        <span class="detail--complement">/2</span>
-        <span class="status--text"> Tốt </span>
-      </div>
-      <bottom class="modal__btn--add">
-        <i class="fa-solid fa-plus"></i>
-        <div class="complement__add__option">
-          <ul>
-            <li>
-              <a href="./APP/ADD/addNewConditioner.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy lạnh mới</a>
-            </li>
-            <li>
-              <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
-            </li>
-          </ul>
+    <?php if ($maylanhcheck == 0) { ?>
+      <div class="air-conditioner room__content--complement--box status--good">
+        <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="maylanh">
+          <i class="fa-regular fa-eye"></i>
+        </bottom>
+        <div class="title--box">
+          <span class="title--medium">MÁY LẠNH</span>
+          <span class="title--mini">Sức chứa: <?php echo $somaylanhdalap["somaylanhdalap"] ?> / <?php echo $roomContent["soluongmaylanh"] ?></span>
         </div>
-      </bottom>
-    </div>
+        <div class="amount">
+          <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $somaylanhhoatdong ?></span>
+          <span class="detail--complement">/<?php echo $somaylanhdalap['somaylanhdalap'] ?></span>
+          <span class="status--text"> Tốt </span>
+        </div>
+        <bottom class="modal__btn--add">
+          <i class="fa-solid fa-plus"></i>
+          <div class="complement__add__option">
+            <ul>
+              <li>
+                <a href="./APP/ADD/addNewConditioner.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy lạnh mới</a>
+              </li>
+              <li>
+                <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
+              </li>
+            </ul>
+          </div>
+        </bottom>
+      </div>
+    <?php } elseif ($quatcheck == 1) { ?>
+      <div class="air-conditioner room__content--complement--box status--notgood">
+        <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="maylanh">
+          <i class="fa-regular fa-eye"></i>
+        </bottom>
+        <div class="title--box">
+          <span class="title--medium">MÁY LẠNH</span>
+          <span class="title--mini">Sức chứa: <?php echo $somaylanhdalap["somaylanhdalap"] ?> / <?php echo $roomContent["soluongmaylanh"] ?></span>
+        </div>
+        <div class="amount">
+          <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $somaylanhhoatdong ?></span>
+          <span class="detail--complement">/<?php echo $somaylanhdalap['somaylanhdalap'] ?></span>
+          <span class="status--text"> Có hư hại </span>
+        </div>
+        <bottom class="modal__btn--add">
+          <i class="fa-solid fa-plus"></i>
+          <div class="complement__add__option">
+            <ul>
+              <li>
+                <a href="./APP/ADD/addNewConditioner.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy lạnh mới</a>
+              </li>
+              <li>
+                <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
+              </li>
+            </ul>
+          </div>
+        </bottom>
+      </div>
+    <?php } elseif ($quatcheck > 1) { ?>
+      <div class="air-conditioner room__content--complement--box status--damage">
+        <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="maylanh">
+          <i class="fa-regular fa-eye"></i>
+        </bottom>
+        <div class="title--box">
+          <span class="title--medium">MÁY LẠNH</span>
+          <span class="title--mini">Sức chứa: <?php echo $somaylanhdalap["somaylanhdalap"] ?> / <?php echo $roomContent["soluongmaylanh"] ?></span>
+        </div>
+        <div class="amount">
+          <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $somaylanhhoatdong ?></span>
+          <span class="detail--complement">/<?php echo $somaylanhdalap['somaylanhdalap'] ?></span>
+          <span class="status--text"> Hư hại nhiều </span>
+        </div>
+        <bottom class="modal__btn--add">
+          <i class="fa-solid fa-plus"></i>
+          <div class="complement__add__option">
+            <ul>
+              <li>
+                <a href="./APP/ADD/addNewConditioner.php?ID_phong=<?php echo ($ID_phong); ?>" class="add--option">Thêm máy lạnh mới</a>
+              </li>
+              <li>
+                <a href="./Modules/pageUpdate.php" class="add--option">Thêm từ kho</a>
+              </li>
+            </ul>
+          </div>
+        </bottom>
+      </div>
+    <?php } ?>
   </div>
 
   <!-- PHÒNG TIVI -->
@@ -374,80 +416,27 @@ if ($ID_loaiphong == 1) {
 
   <!-- QUERY BÀN GHẾ -->
   <?php
-  $table = $conn->query("SELECT SUM(tinhtrangbanghe.soluonghuhai) as soluonghuhai FROM tinhtrangbanghe, banghe WHERE tinhtrangbanghe.ID_banghe = banghe.ID_banghe AND banghe.ID_phong = $ID_phong");
-  $tableContent = $table->fetch(PDO::FETCH_ASSOC);
-
-  $bandalap = $conn->query("SELECT SUM(soluong) as soluong FROM banghe WHERE ID_phong = $ID_phong");
-  $sobandalap = $bandalap->fetch(PDO::FETCH_ASSOC);
-  ?>
-
-  <?php
-  $sobanghe = $roomContent['soluongbanghe'];
-  $sobanghehu = $tableContent['soluonghuhai'];
-
-  $sobanghedungduoc = $sobandalap["soluong"] - $sobanghehu;
+  include("../Query/tableQuery.php")
   ?>
 
   <!-- QUERY QUẠT -->
   <?php
-  $quathong = $conn->query("SELECT COUNT(tinhtrangquat.tinhtrang) as soquathong FROM quat, tinhtrangquat WHERE quat.ID_quat = tinhtrangquat.ID_quat AND quat.ID_phong = $ID_phong AND tinhtrangquat.tinhtrang = 0");
-
-  $soquathong = $quathong->fetch(PDO::FETCH_ASSOC);
-
-
-  $soquat = $conn->query("SELECT COUNT(ID_quat) as soquatdalap FROM quat WHERE quat.ID_phong = $ID_phong");
-
-  $soquatdalap = $soquat->fetch(PDO::FETCH_ASSOC);
-
-  $soquathoatdong = $soquatdalap['soquatdalap'] - $soquathong['soquathong'];
-
-  $quatcheck = $soquatdalap['soquatdalap'] - $soquathoatdong;
+  include("../Query/fanQuery.php")
   ?>
 
   <!-- QUERY ĐÈN -->
   <?php
-  $denhong = $conn->query("SELECT COUNT(tinhtrangden.tinhtrang) as sodenhong FROM den, tinhtrangden WHERE den.ID_den = tinhtrangden.ID_den AND den.ID_phong = $ID_phong AND tinhtrangden.tinhtrang = 0");
-
-  $sodenhong = $denhong->fetch(PDO::FETCH_ASSOC);
-
-
-  $soden = $conn->query("SELECT COUNT(ID_den) as sodendalap FROM den WHERE den.ID_phong = $ID_phong");
-
-  $sodendalap = $soden->fetch(PDO::FETCH_ASSOC);
-
-  $sodenhoatdong = $sodendalap['sodendalap'] - $sodenhong['sodenhong'];
-
-  $dencheck = $sodendalap['sodendalap'] - $sodenhoatdong;
+  include("../Query/lampQuery.php")
   ?>
 
   <!-- QUERY TIVI -->
   <?php
-  $tivihong = $conn->query("SELECT COUNT(tinhtrangtivi.tinhtrang) as sotivihong FROM tivi, tinhtrangtivi WHERE tivi.ID_tivi = tinhtrangtivi.ID_tivi AND tivi.ID_phong = $ID_phong AND tinhtrangtivi.tinhtrang = 0");
-
-  $sotivihong = $tivihong->fetch(PDO::FETCH_ASSOC);
-
-
-  $sotivi = $conn->query("SELECT COUNT(ID_tivi) as sotividalap FROM tivi WHERE tivi.ID_phong = $ID_phong");
-
-  $sotividalap = $sotivi->fetch(PDO::FETCH_ASSOC);
-
-  $sotivihoatdong = $sotividalap['sotividalap'] - $sotivihong['sotivihong'];
+  include("../Query/tiviQuery.php")
   ?>
 
   <!-- QUERY LOA -->
   <?php
-  $loahong = $conn->query("SELECT COUNT(tinhtrangloa.tinhtrang) as soloahong FROM loa, tinhtrangloa WHERE loa.ID_loa = tinhtrangloa.ID_loa AND loa.ID_phong = $ID_phong AND tinhtrangloa.tinhtrang = 0");
-
-  $soloahong = $loahong->fetch(PDO::FETCH_ASSOC);
-
-
-  $soloa = $conn->query("SELECT COUNT(ID_loa) as soloadalap FROM loa WHERE loa.ID_phong = $ID_phong");
-
-  $soloadalap = $soloa->fetch(PDO::FETCH_ASSOC);
-
-  $soloahoatdong = $soloadalap['soloadalap'] - $soloahong['soloahong'];
-
-  $loacheck = $soloadalap['soloadalap'] - $soloahoatdong;
+  include("../Query/speakerQuery.php")
   ?>
 
   <h1 class="roomname">PHÒNG <?php echo $roomContent['Ten_phong']; ?></h1>
@@ -515,7 +504,7 @@ if ($ID_loaiphong == 1) {
             </div>
           </bottom>
           <button class="modal__btn--report--all">
-            <a class="a__btn a__btn--report" href="./APP/REPORT/reportTable.html">
+            <a class="a__btn a__btn--report" href="./APP/REPORT/reportTable.php?ID_phong=<?php echo ($ID_phong); ?>&ID_banghe=<?php echo $ID_banghe ?>">
               <i class="fa-solid fa-circle-exclamation"></i>
             </a>
           </button>
@@ -552,7 +541,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">QUẠT</h1>
+        <div class="title--box">
+          <span class="title--medium">QUẠT</span>
+          <span class="title--mini">Sức chứa: <?php echo $soquatdalap["soquatdalap"] ?> / <?php echo $roomContent['soluongquat']; ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soquathoatdong ?></span>
           <span class="detail--complement">/<?php echo $soquatdalap['soquatdalap'] ?></span>
@@ -579,7 +571,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">QUẠT</h1>
+        <div class="title--box">
+          <span class="title--medium">QUẠT</span>
+          <span class="title--mini">Sức chứa: <?php echo $soquatdalap["soquatdalap"] ?> / <?php echo $roomContent['soluongquat']; ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soquathoatdong ?></span>
           <span class="detail--complement">/<?php echo $soquatdalap['soquatdalap'] ?></span>
@@ -606,7 +601,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">QUẠT</h1>
+        <div class="title--box">
+          <span class="title--medium">QUẠT</span>
+          <span class="title--mini">Sức chứa: <?php echo $soquatdalap["soquatdalap"] ?> / <?php echo $roomContent['soluongquat']; ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soquathoatdong ?></span>
           <span class="detail--complement">/<?php echo $soquatdalap['soquatdalap'] ?></span>
@@ -635,7 +633,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">ĐÈN</h1>
+        <div class="title--box">
+          <span class="title--medium">ĐÈN</span>
+          <span class="title--mini">Sức chứa: <?php echo $sodendalap["sodendalap"] ?> / <?php echo $roomContent["soluongden"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $sodenhoatdong ?></span>
           <span class="detail--complement">/<?php echo $sodendalap['sodendalap']; ?></span>
@@ -660,7 +661,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">ĐÈN</h1>
+        <div class="title--box">
+          <span class="title--medium">ĐÈN</span>
+          <span class="title--mini">Sức chứa: <?php echo $sodendalap["sodendalap"] ?> / <?php echo $roomContent["soluongden"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $sodenhoatdong ?></span>
           <span class="detail--complement">/<?php echo $sodendalap['sodendalap']; ?></span>
@@ -685,7 +689,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">ĐÈN</h1>
+        <div class="title--box">
+          <span class="title--medium">ĐÈN</span>
+          <span class="title--mini">Sức chứa: <?php echo $sodendalap["sodendalap"] ?> / <?php echo $roomContent["soluongden"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $sodenhoatdong ?></span>
           <span class="detail--complement">/<?php echo $sodendalap['sodendalap']; ?></span>
@@ -712,7 +719,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="loa">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">LOA</h1>
+        <div class="title--box">
+          <span class="title--medium">LOA</span>
+          <span class="title--mini">Sức chứa: <?php echo $soloadalap["soloadalap"] ?> / <?php echo $roomContent["soluongloa"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soloahoatdong ?></span>
           <span class="detail--complement">/<?php echo $soloadalap['soloadalap']; ?></span>
@@ -737,7 +747,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="loa">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">LOA</h1>
+        <div class="title--box">
+          <span class="title--medium">LOA</span>
+          <span class="title--mini">Sức chứa: <?php echo $soloadalap["soloadalap"] ?> / <?php echo $roomContent["soluongloa"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soloahoatdong ?></span>
           <span class="detail--complement">/<?php echo $soloadalap['soloadalap']; ?></span>
@@ -762,7 +775,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="loa">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">LOA</h1>
+        <div class="title--box">
+          <span class="title--medium">LOA</span>
+          <span class="title--mini">Sức chứa: <?php echo $soloadalap["soloadalap"] ?> / <?php echo $roomContent["soluongloa"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soloahoatdong ?></span>
           <span class="detail--complement">/<?php echo $soloadalap['soloadalap']; ?></span>
@@ -793,81 +809,30 @@ if ($ID_loaiphong == 1) {
   $roomContent = $room->fetch(PDO::FETCH_ASSOC);
   ?>
 
-  <?php
-  $table = $conn->query("SELECT SUM(tinhtrangbanghe.soluonghuhai) as soluonghuhai FROM tinhtrangbanghe, banghe WHERE tinhtrangbanghe.ID_banghe = banghe.ID_banghe AND banghe.ID_phong = $ID_phong");
-  $tableContent = $table->fetch(PDO::FETCH_ASSOC);
-
-  $bandalap = $conn->query("SELECT SUM(soluong) as soluong FROM banghe WHERE ID_phong = $ID_phong");
-  $sobandalap = $bandalap->fetch(PDO::FETCH_ASSOC);
-  ?>
+  <!-- QUERY BÀN GHẾ -->
 
   <?php
-  $sobanghe = $roomContent['soluongbanghe'];
-  $sobanghehu = $tableContent['soluonghuhai'];
-
-  $sobanghedungduoc = $sobandalap["soluong"] - $sobanghehu;
+  include("../Query/tableQuery.php")
   ?>
 
   <!-- QUERY QUẠT -->
   <?php
-  $quathong = $conn->query("SELECT COUNT(tinhtrangquat.tinhtrang) as soquathong FROM quat, tinhtrangquat WHERE quat.ID_quat = tinhtrangquat.ID_quat AND quat.ID_phong = $ID_phong AND tinhtrangquat.tinhtrang = 0");
-
-  $soquathong = $quathong->fetch(PDO::FETCH_ASSOC);
-
-
-  $soquat = $conn->query("SELECT COUNT(ID_quat) as soquatdalap FROM quat WHERE quat.ID_phong = $ID_phong");
-
-  $soquatdalap = $soquat->fetch(PDO::FETCH_ASSOC);
-
-  $soquathoatdong = $soquatdalap['soquatdalap'] - $soquathong['soquathong'];
-
-  $quatcheck = $soquatdalap['soquatdalap'] - $soquathoatdong;
+  include("../Query/fanQuery.php")
   ?>
 
   <!-- QUERY ĐÈN -->
   <?php
-  $denhong = $conn->query("SELECT COUNT(tinhtrangden.tinhtrang) as sodenhong FROM den, tinhtrangden WHERE den.ID_den = tinhtrangden.ID_den AND den.ID_phong = $ID_phong AND tinhtrangden.tinhtrang = 0");
-
-  $sodenhong = $denhong->fetch(PDO::FETCH_ASSOC);
-
-
-  $soden = $conn->query("SELECT COUNT(ID_den) as sodendalap FROM den WHERE den.ID_phong = $ID_phong");
-
-  $sodendalap = $soden->fetch(PDO::FETCH_ASSOC);
-
-  $sodenhoatdong = $sodendalap['sodendalap'] - $sodenhong['sodenhong'];
-
-  $dencheck = $sodendalap['sodendalap'] - $sodenhoatdong;
+  include("../Query/lampQuery.php")
   ?>
 
   <!-- QUERY LOA -->
   <?php
-  $loahong = $conn->query("SELECT COUNT(tinhtrangloa.tinhtrang) as soloahong FROM loa, tinhtrangloa WHERE loa.ID_loa = tinhtrangloa.ID_loa AND loa.ID_phong = $ID_phong AND tinhtrangloa.tinhtrang = 0");
-
-  $soloahong = $loahong->fetch(PDO::FETCH_ASSOC);
-
-
-  $soloa = $conn->query("SELECT COUNT(ID_loa) as soloadalap FROM loa WHERE loa.ID_phong = $ID_phong");
-
-  $soloadalap = $soloa->fetch(PDO::FETCH_ASSOC);
-
-  $soloahoatdong = $soloadalap['soloadalap'] - $soloahong['soloahong'];
-
-  $loacheck = $soloadalap['soloadalap'] - $soloahoatdong;
+  include("../Query/speakerQuery.php")
   ?>
 
   <!-- QUERY MÁY CHIẾU -->
   <?php
-  $maychieuhong = $conn->query("SELECT COUNT(tinhtrangmaychieu.tinhtrang) as somaychieuhong FROM maychieu, tinhtrangmaychieu WHERE maychieu.ID_maychieu = tinhtrangmaychieu.ID_maychieu AND maychieu.ID_phong = $ID_phong AND tinhtrangmaychieu.tinhtrang = 0");
-
-  $somaychieuhong = $maychieuhong->fetch(PDO::FETCH_ASSOC);
-
-
-  $somaychieu = $conn->query("SELECT COUNT(ID_maychieu) as somaychieudalap FROM maychieu WHERE maychieu.ID_phong = $ID_phong");
-
-  $somaychieudalap = $somaychieu->fetch(PDO::FETCH_ASSOC);
-
-  $somaychieuhoatdong = $somaychieudalap['somaychieudalap'] - $somaychieuhong['somaychieuhong'];
+  include("../Query/projectorQuery.php")
   ?>
 
   <h1 class="roomname">PHÒNG <?php echo $roomContent['Ten_phong']; ?></h1>
@@ -936,7 +901,7 @@ if ($ID_loaiphong == 1) {
             </div>
           </bottom>
           <button class="modal__btn--report--all">
-            <a class="a__btn a__btn--report" href="./APP/REPORT/reportTable.html">
+            <a class="a__btn a__btn--report" href="./APP/REPORT/reportTable.php?ID_phong=<?php echo ($ID_phong); ?>&ID_banghe=<?php echo $ID_banghe ?>">
               <i class="fa-solid fa-circle-exclamation"></i>
             </a>
           </button>
@@ -973,7 +938,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">QUẠT</h1>
+        <div class="title--box">
+          <span class="title--medium">QUẠT</span>
+          <span class="title--mini">Sức chứa: <?php echo $soquatdalap["soquatdalap"] ?> / <?php echo $roomContent['soluongquat']; ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soquathoatdong ?></span>
           <span class="detail--complement">/<?php echo $soquatdalap['soquatdalap'] ?></span>
@@ -1000,7 +968,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">QUẠT</h1>
+        <div class="title--box">
+          <span class="title--medium">QUẠT</span>
+          <span class="title--mini">Sức chứa: <?php echo $soquatdalap["soquatdalap"] ?> / <?php echo $roomContent['soluongquat']; ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soquathoatdong ?></span>
           <span class="detail--complement">/<?php echo $soquatdalap['soquatdalap'] ?></span>
@@ -1027,7 +998,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="quat">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">QUẠT</h1>
+        <div class="title--box">
+          <span class="title--medium">QUẠT</span>
+          <span class="title--mini">Sức chứa: <?php echo $soquatdalap["soquatdalap"] ?> / <?php echo $roomContent['soluongquat']; ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soquathoatdong ?></span>
           <span class="detail--complement">/<?php echo $soquatdalap['soquatdalap'] ?></span>
@@ -1056,7 +1030,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">ĐÈN</h1>
+        <div class="title--box">
+          <span class="title--medium">ĐÈN</span>
+          <span class="title--mini">Sức chứa: <?php echo $sodendalap["sodendalap"] ?> / <?php echo $roomContent["soluongden"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $sodenhoatdong ?></span>
           <span class="detail--complement">/<?php echo $sodendalap['sodendalap']; ?></span>
@@ -1081,7 +1058,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">ĐÈN</h1>
+        <div class="title--box">
+          <span class="title--medium">ĐÈN</span>
+          <span class="title--mini">Sức chứa: <?php echo $sodendalap["sodendalap"] ?> / <?php echo $roomContent["soluongden"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $sodenhoatdong ?></span>
           <span class="detail--complement">/<?php echo $sodendalap['sodendalap']; ?></span>
@@ -1106,7 +1086,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="den">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">ĐÈN</h1>
+        <div class="title--box">
+          <span class="title--medium">ĐÈN</span>
+          <span class="title--mini">Sức chứa: <?php echo $sodendalap["sodendalap"] ?> / <?php echo $roomContent["soluongden"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $sodenhoatdong ?></span>
           <span class="detail--complement">/<?php echo $sodendalap['sodendalap']; ?></span>
@@ -1133,7 +1116,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="loa">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">LOA</h1>
+        <div class="title--box">
+          <span class="title--medium">LOA</span>
+          <span class="title--mini">Sức chứa: <?php echo $soloadalap["soloadalap"] ?> / <?php echo $roomContent["soluongloa"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soloahoatdong ?></span>
           <span class="detail--complement">/<?php echo $soloadalap['soloadalap']; ?></span>
@@ -1158,7 +1144,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="loa">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">LOA</h1>
+        <div class="title--box">
+          <span class="title--medium">LOA</span>
+          <span class="title--mini">Sức chứa: <?php echo $soloadalap["soloadalap"] ?> / <?php echo $roomContent["soluongloa"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soloahoatdong ?></span>
           <span class="detail--complement">/<?php echo $soloadalap['soloadalap']; ?></span>
@@ -1183,7 +1172,10 @@ if ($ID_loaiphong == 1) {
         <bottom class="modal__btn--seemore" data-modal="seemore" roomId="<?php echo ($ID_phong); ?>" queryTable="loa">
           <i class="fa-regular fa-eye"></i>
         </bottom>
-        <h1 class="title--medium">LOA</h1>
+        <div class="title--box">
+          <span class="title--medium">LOA</span>
+          <span class="title--mini">Sức chứa: <?php echo $soloadalap["soloadalap"] ?> / <?php echo $roomContent["soluongloa"] ?></span>
+        </div>
         <div class="amount">
           <span class="detail--complement" style="font-weight: 600; font-size: 40px"><?php echo $soloahoatdong ?></span>
           <span class="detail--complement">/<?php echo $soloadalap['soloadalap']; ?></span>
@@ -1290,7 +1282,7 @@ if ($ID_loaiphong == 1) {
             </div>
           </bottom>
           <button class="modal__btn--report--all">
-            <a class="a__btn a__btn--report" href="./APP/REPORT/reportTable.html">
+            <a class="a__btn a__btn--report" href="./APP/REPORT/reportTable.php?ID_phong=<?php echo ($ID_phong); ?>&ID_banghe=<?php echo $ID_banghe ?>">
               <i class="fa-solid fa-circle-exclamation"></i>
             </a>
           </button>
@@ -1337,7 +1329,10 @@ if ($ID_loaiphong == 1) {
       <bottom class="modal__btn--seemore">
         <i class="fa-regular fa-eye"></i>
       </bottom>
-      <h1 class="title--medium">QUẠT</h1>
+      <div class="title--box">
+        <span class="title--medium">QUẠT</span>
+        <span class="title--mini">Sức chứa: <?php echo $soquatdalap["soquatdalap"] ?> / <?php echo $roomContent['soluongquat']; ?></span>
+      </div>
       <div class="amount">
         <span class="detail--complement" style="font-weight: 600; font-size: 40px">3</span>
         <span class="detail--complement">/6</span>
@@ -1362,7 +1357,10 @@ if ($ID_loaiphong == 1) {
       <bottom class="modal__btn--seemore">
         <i class="fa-regular fa-eye"></i>
       </bottom>
-      <h1 class="title--medium">ĐÈN</h1>
+      <div class="title--box">
+        <span class="title--medium">ĐÈN</span>
+        <span class="title--mini">Sức chứa: <?php echo $sodendalap["sodendalap"] ?> / <?php echo $roomContent["soluongden"] ?></span>
+      </div>
       <div class="amount">
         <span class="detail--complement" style="font-weight: 600; font-size: 40px">7</span>
         <span class="detail--complement">/8</span>
@@ -1387,7 +1385,10 @@ if ($ID_loaiphong == 1) {
       <bottom class="modal__btn--seemore">
         <i class="fa-regular fa-eye"></i>
       </bottom>
-      <h1 class="title--medium">MÁY LẠNH</h1>
+      <div class="title--box">
+        <span class="title--medium">MÁY LẠNH</span>
+        <span class="title--mini">Sức chứa: <?php echo $somaylanhdalap["somaylanhdalap"] ?> / <?php echo $roomContent["soluongmaylanh"] ?></span>
+      </div>
       <div class="amount">
         <span class="detail--complement" style="font-weight: 600; font-size: 40px">1</span>
         <span class="detail--complement">/1</span>

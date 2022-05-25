@@ -45,7 +45,7 @@ include("./db_conn.php")
 
       <div class="buildings">
         <?php while ($building = $buildings->fetch(PDO::FETCH_ASSOC)) { ?>
-          <div class="buildings__building" data-modal="buildingModal" buildingId="<?php echo $building['ID_toanha']; ?>">
+          <div style="background-color: #<?php echo $building['color']; ?>;" class="buildings__building" data-modal="buildingModal" buildingId="<?php echo $building['ID_toanha']; ?>">
             <span><?php echo $building['Ten_toanha']; ?></span>
           </div>
         <?php } ?>

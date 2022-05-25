@@ -211,7 +211,8 @@ CREATE TABLE reports (
   FOREIGN KEY (ID_user) REFERENCES users(ID_user),
   FOREIGN KEY (ID_phong) REFERENCES phong(ID_phong),
   ngay date not null,
-  noidung varchar(500) not null
+  noidung varchar(500) not null,
+  for varchar(30) not null
 )
 
 INSERT INTO `phong` (`ID_phong`, `ID_tang`, `ID_loaiphong`, `Ten_phong`, `soluongbanghe`, `soluongquat`, `soluongmaytinh`, `soluongloa`, `soluongden`, `soluongmaychieu`, `soluongmic`, `soluongtivi`) VALUES (NULL, '1', '2', '101', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL), (NULL, '1', '2', '102', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL), (NULL, '1', '2', '103', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL), (NULL, '1', '2', '104', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);

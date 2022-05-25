@@ -68,8 +68,17 @@ main {
   }
 }
 
-.title--medium {
-  font-size: 35px;
+.title {
+  &--medium {
+    font-size: 35px;
+    width: fit-content;
+  }
+  &--mini {
+    margin-left: 10px;
+  }
+  &--box {
+    margin-top: -15px;
+  }
 }
 
 .title--large {
